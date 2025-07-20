@@ -117,8 +117,31 @@ class WebFuzzer:
         """Start the Selenium browser and open the target URL."""
         firefox_options = Options()
         firefox_options.headless = headless
-        firefox_options.binary_location = r"C:\Program Files\Mozilla Firefox\firefox.exe"
-        service = FirefoxService(executable_path=r"C:\geckodriver\geckodriver.exe")
+        # Allow overriding Firefox/Geckodriver paths via environment variables.
+        # This makes the fuzzer usable on Linux, macOS, Docker, CI, etc. without code edits.
+
+        # 1️⃣  Resolve Firefox binary location
+        firefox_binary_env = os.environ.get("FIREFOX_BINARY")  # user-supplied path
+        windows_default_binary = r"C:\Program Files\Mozilla Firefox\firefox.exe"
+
+        if firefox_binary_env:
+            firefox_options.binary_location = firefox_binary_env
+        elif os.path.exists(windows_default_binary):
+            # Fallback for the original Windows setup – keep existing behaviour if path still valid
+            firefox_options.binary_location = windows_default_binary
+        # Otherwise rely on system installation available on PATH (Linux packages, macOS brew, etc.)
+
+        # 2️⃣  Resolve Geckodriver executable location
+        geckodriver_env = os.environ.get("GECKODRIVER_PATH")  # user-supplied path
+        windows_default_gecko = r"C:\geckodriver\geckodriver.exe"
+
+        geckodriver_path = (
+            geckodriver_env
+            if geckodriver_env
+            else (windows_default_gecko if os.path.exists(windows_default_gecko) else "geckodriver")
+        )
+
+        service = FirefoxService(executable_path=geckodriver_path)
 
         self.driver = webdriver.Firefox(service=service, options=firefox_options)
      
