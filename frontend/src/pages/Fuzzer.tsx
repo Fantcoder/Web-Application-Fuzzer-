@@ -41,7 +41,7 @@ export default function Fuzzer() {
     <div className="space-y-6">
       <h2 className="text-xl font-semibold">Web Application Fuzzer</h2>
 
-      <div className="space-y-4 max-w-xl">
+      <div className="space-y-4 max-w-xl bg-neutral-900 border border-neutral-800 p-6 rounded-lg">
         <label className="block">
           <span className="text-sm text-neutral-400">Target URL</span>
           <input
