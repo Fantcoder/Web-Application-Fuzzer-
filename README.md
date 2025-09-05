@@ -8,19 +8,43 @@ This Web Application Fuzzer is a security testing tool that helps penetration te
 
 ## Features
 
-- Web form fuzzing
-- Parameter manipulation
-- Common vulnerability testing
-- Response analysis
-- Customizable payloads
-- Python-powered automation
+- Advanced Web Form Fuzzing
+  - Input field detection and automated testing
+  - Support for multiple form types (login, search, upload, etc.)
+  - Custom fuzzing patterns and payloads  
+
+- Comprehensive Parameter Manipulation
+  - URL parameter fuzzing
+  - POST data manipulation
+  - Cookie and header fuzzing
+  - JSON/XML payload testing  
+
+- Vulnerability Testing Capabilities
+  - SQL Injection detection
+  - Cross-Site Scripting (XSS) testing
+  - Command Injection checks
+  - Directory Traversal testing
+  - CSRF token analysis  
+
+- Intelligent Response Analysis
+  - Status code monitoring
+  - Response time analysis
+  - Error message detection
+  - Pattern matching
+  - Anomaly detection
 
 ## Requirements
 
-- Python 3.x
-- Required Python packages (install via pip):
+- Python 3.8 or higher
+- Required Python packages:
   ```bash
-  pip install -r requirements.txt
+  requests>=2.28.0
+  beautifulsoup4>=4.9.3
+  urllib3>=1.26.0
+  argparse>=1.4.0
+  colorama>=0.4.4
+  tqdm>=4.65.0
+  pyyaml>=6.0.0
   ```
 
 ## Installation
@@ -44,15 +68,52 @@ This Web Application Fuzzer is a security testing tool that helps penetration te
 
 ## Usage
 
+### Basic Usage
 ```bash
 python fuzzer.py -u <target_url> [options]
 ```
 
-### Basic Options:
+### Common Use Cases
+
+1. Basic Form Fuzzing:
+```bash
+python fuzzer.py -u https://example.com/login -m POST --form
+```
+
+2. Custom Payload Testing:
+```bash
+python fuzzer.py -u https://example.com/search -p payloads/xss.txt --output results.txt
+```
+
+3. Advanced Scanning with All Options:
+```bash
+python fuzzer.py -u https://example.com/api \
+    --method POST \
+    --headers "Content-Type: application/json" \
+    --cookies "session=test" \
+    --depth 3 \
+    --timeout 30 \
+    --threads 5 \
+    --output scan_results.json
+```
+
+4. Parameter Discovery Mode:
+```bash
+python fuzzer.py -u https://example.com --discover --wordlist common-params.txt
+```
+
+### Available Options:
 - `-u, --url`: Target URL to fuzz
 - `-m, --method`: HTTP method (GET/POST)
 - `-p, --payload`: Custom payload file
 - `-o, --output`: Output file for results
+- `--headers`: Custom HTTP headers
+- `--cookies`: Cookie values
+- `--depth`: Crawling depth
+- `--timeout`: Request timeout
+- `--threads`: Number of concurrent threads
+- `--discover`: Enable parameter discovery mode
+- `--verbose`: Enable detailed output
 
 ## Security Considerations
 
